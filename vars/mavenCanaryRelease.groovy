@@ -57,6 +57,8 @@ def call(body) {
             def artifactId = m.artifactId
 
             sh "docker tag ${user}/${artifactId}:${config.version} ${registry}/${user}/${artifactId}:${config.version}"
+            sh "docker tag ${user}/${artifactId}:${config.version} 10.50.72.96:5000/openshift:${config.version}"
+            sh "docker push 10.50.72.96:5000/openshift:${config.version}"
 
         } else {
             retry(5) {
