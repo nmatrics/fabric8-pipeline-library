@@ -63,6 +63,7 @@ def call(body) {
         } else {
             retry(5) {
                 sh "mvn fabric8:push -Ddocker.push.registry=${registry}"
+                sh "mvn fabric8:push -Ddocker.push.registry=10.50.72.96:5000"
             }
         }
     }
